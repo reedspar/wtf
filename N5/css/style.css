@@ -1414,3 +1414,246 @@ body.loaded #preloader .loader{
 		padding-top:0;
 	}
 }
+body {
+	background-color: lightblue;
+  }
+  
+  #wrapper {
+	margin: auto;
+	width: 1000px;
+	-webkit-perspective: 800px;
+	-moz-perspectiveL 800px;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transition: -webkit-transform 1s ease-in;
+  }
+  
+  #field {
+	position: relative;
+	height: 640px;
+	background: url("https://s3-us-west-2.amazonaws.com/mfbrowndesign.com/img/baseball+diamond.jpg") no-repeat center;
+	background-size: cover;
+  }
+  
+  /* BUTTON STYLES -------------------------------------*/
+  
+  #playball {
+	display: none;
+  }
+  
+  label {
+	position: absolute;
+	color: white;
+	font-family: sans-serif;
+	font-size: 1.5em;
+	top: 500px;
+	right: 830px;
+	cursor: pointer;
+	background-color: steelblue;
+	border-radius: 5%;
+	padding: 0.25em 1em;
+  }
+  
+  label:hover {
+	background-color: darkblue;
+  }
+  
+  /* PLAYERS------------------------------------------*/
+  
+  #pitcher {
+	height: 50px;
+	position: absolute;
+	right: 48%;
+	top: 62%;
+  }
+  
+  
+  .hitter img {
+	width: 50px;
+	height: 50px;
+  }
+  
+  #hitter-wrap {
+	position: absolute;
+	  -webkit-transform-style: preserve-3d;
+	-moz-transform-stlye: preserve-3d;
+	width: 50px;
+	height: 50px;
+	right: 50%;
+	top: 85%;
+  }
+  
+  #hitter-wrap div {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+  }
+  
+  #hitter-front {
+	z-index: 100;
+  }
+  
+  #hitter-back {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  }
+  
+  #ball {
+	position: absolute;
+	height: 7px;
+	width: 7px;
+	border-radius: 50%;
+	background-color: white;
+	right: 50%;
+	top: 66%;
+  }
+  
+  /* BANNER AND SCORE STYLES -------------------------------*/
+  
+  #homerun {
+	position: absolute;
+	font-family: sans-serif;
+	font-size: 3em;
+	color: white;
+	right: 35%;
+	top: -100px;
+  }
+  
+  #score {
+	position: absolute;
+	font-family: sans-serif;
+	color: gold;
+	right: 520px;
+	top: -1000px;
+  }
+  
+  /* BUTTON ACTIONS -----------------------------------*/
+  #playball:checked ~ #ball{
+	-webkit-animation: pitch 10s linear 1;
+	-webkit-animation-fill-mode: forwards;}
+  
+  #playball:checked ~ #hitter-wrap{
+	-webkit-animation: hit 20s 1.2s linear 1;
+	-webkit-animation-fill-mode: forwards;}
+  
+  #playball:checked ~ #homerun{
+	-webkit-animation: homerun 2s 11s linear 1;
+	-webkit-animation-fill-mode: forwards;}
+  
+  #playball:checked ~ #score{
+	-webkit-animation: score 0.1s 13s linear 1;
+	-webkit-animation-fill-mode: forwards;}
+  
+  /*BUTTON ACTIONS MOZILLA --------------------------*/
+  
+  #playball:checked ~ #ball{
+	-moz-animation: pitch 10s linear 1;
+	-moz-animation-fill-mode: forwards;}
+  
+  #playball:checked ~ #hitter-wrap{
+	-moz-animation: hit 20s 1.2s linear 1;
+	-moz-animation-fill-mode: forwards;}
+  
+  #playball:checked ~ #homerun{
+	-moz-animation: homerun 1.5s 10.5s linear 1;
+	-moz-animation-fill-mode: forwards;}
+  
+  #playball:checked ~ #score{
+	-moz-animation: score 0.01s 13s linear 1;
+	-moz-animation-fill-mode: forwards;}
+  
+  
+  /*BUTTON ACTIONS UNPREFIXED -------------------------*/
+  #playball:checked ~ #ball{
+	animation: pitch 10s linear 1;
+	animation-fill-mode: forwards;}
+  
+  #playball:checked ~ #hitter-wrap{
+	animation: hit 20s 1.2s linear 1;
+	animation-fill-mode: forwards;}
+  
+  #playball:checked ~ #homerun{
+	animation: homerun 1.5s 10.5s linear 1;
+	animation-fill-mode: forwards;}
+  
+  #playball:checked ~ #score{
+	animation: score 0.01s 13s linear 1;
+	animation-fill-mode: forwards;}
+  
+  
+  /* KEYFRAMES----------------------------------*/
+  
+  /* WEBKIT---------------*/ 
+  
+  @-webkit-keyframes pitch {
+	15% {  -webkit-transform: translate(0, 150px); width: 7px; height: 7px}
+	65% {  -webkit-transform: translate(40px, -180px); width: 14px; height: 14px}
+	100% { -webkit-transform: translate(60px, -310px); width: 4px; height: 4px }
+  }
+  
+  @-webkit-keyframes hit {
+	2% {  -webkit-transform: rotateY(360deg) translate(0,0)}
+	30%{  -webkit-transform: translate(265px, -160px)}
+	55%{  -webkit-transform: translate(10px, -270px)}
+	80%{  -webkit-transform: translate(-265px, -160px)}
+	100%{ -webkit-transform: translate(75px, 45px)}
+  }
+  
+  @-webkit-keyframes homerun {
+	100% {-webkit-transform: translate(0, 100px)}
+  }
+  
+  @-webkit-keyframes score {
+	100% {-webkit-transform: translate(0, 1106px)}
+  }
+  
+  /* KEYFRAMES MOZILLA ---------------------- */
+  
+  @-moz-keyframes pitch {
+	15% {  -moz-transform: translate(0, 150px); width: 7px; height: 7px}
+	65% {  -moz-transform: translate(40px, -180px); width: 14px; height: 14px}
+	100% { -moz-transform: translate(60px, -310px); width: 4px; height: 4px }
+  }
+  
+  @-moz-keyframes hit {
+	2% {  -moz-transform: rotateY(360deg)}
+	30%{  -moz-transform: translate(265px, -160px)}
+	55%{  -moz-transform: translate(10px, -270px)}
+	80%{  -moz-transform: translate(-265px, -160px)}
+	100%{ -moz-transform: translate(0px, 0px)}
+  }
+  
+  @-moz-keyframes homerun {
+	100% {-moz-transform: translate(0, 100px)}
+  }
+  
+  @-moz-keyframes score {
+	100% {-moz-transform: translate(0, 1106px)}
+  }
+  
+  
+  /* KEYFRAMES UNPREFIXED --------------------------------- */
+  
+  @keyframes pitch {
+	15% { transform: translate(0, 150px); width: 7px; height: 7px}
+	65% { transform: translate(40px, -180px); width: 14px; height: 14px}
+	100% { transform: translate(60px, -310px); width: 4px; height: 4px }
+  }
+  
+  @keyframes hit {
+	2% { transform: rotateY(360deg)}
+	30%{ transform: translate(265px, -160px)}
+	55%{ transform: translate(10px, -270px)}
+	80%{ transform: translate(-265px, -160px)}
+	100%{ transform: translate(0px, 0px)}
+  }
+  
+  @keyframes homerun {
+	100% {transform: translate(0, 100px)}
+  }
+  
+  @keyframes score {
+	100% {transform: translate(0, 1106px)}
+  }
